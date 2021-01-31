@@ -1,5 +1,5 @@
 name: scummvm
-base: core18
+base: core20
 license: GPL-2.0
 adopt-info: scummvm
 summary: ScummVM
@@ -25,7 +25,7 @@ compression: lzo
 apps:
   scummvm:
     command-chain: ["snap/command-chain/alsa-launch"]
-    extensions: [gnome-3-28]
+    extensions: [gnome-3-38]
     command: snap/command-chain/desktop-launch $SNAP/bin/wayland-if-possible.sh $SNAP/bin/scummvm-launch.sh
     plugs:
       - wayland
@@ -112,7 +112,7 @@ parts:
       strip --strip-all $SNAPCRAFT_PART_INSTALL/bin/scummvm
       
     plugin: autotools
-    configflags:
+    autotools-configure-parameters:
       - --enable-release
       - --enable-tts
       - --enable-opl2lpt
@@ -152,13 +152,13 @@ parts:
       - libdee-1.0-4
       - libfaad2
       - libflac8
-      - libfluidsynth1
+      - libfluidsynth2
       - libfribidi0
       - libgl1-mesa-dri
       - libgl1-mesa-glx
-      - libglew2.0
+      - libglew2.1
       - libglu1-mesa
-      - libicu60
+      - libicu66
       - libieee1284-3
       - libjpeg62
       - libjpeg8
@@ -170,7 +170,7 @@ parts:
       - libsdl2-2.0-0
       - libsdl2-net-2.0-0
       - libslang2
-      - libsndio6.1
+      - libsndio7.0
       - libspeechd2
       - libtheora0
       - libunity9
